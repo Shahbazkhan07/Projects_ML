@@ -162,3 +162,9 @@ lr_clf = LinearRegression()
 lr_clf.fit(X-train, y_train)
 lr_clf.score(X_test, y_test)
 
+from sklearn.model_selection import ShuffleSplit
+from sklearn.model_selection import cross_val_score
+
+cv = ShuffleSplit(n_splits=5, test_size=0.2, random_state=0)
+
+cross_val_score(LinearRegression(), X, y, cv=cv)
